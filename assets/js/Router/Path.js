@@ -4,6 +4,8 @@ export default {
 
   login: '/login',
   signUp: '/sign-up',
+  home: '/home',
   server: '/server',
-  message:'/message'
+  message: '/message',
+  forgotPassword: '/forgot-password',
 };

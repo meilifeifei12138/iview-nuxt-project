@@ -14,8 +14,8 @@ export default [
   },
   {
     name: '信息',
-    value:'message',
-    icon:'fa-solid fa-message',
+    value: 'message',
+    icon: 'fa-solid fa-message',
     path: path.message,
   },
 ];

@@ -1,10 +1,8 @@
 <template>
   <div class="father-box">
     <img src="~assets/image/404.webp" alt="404图片" />
-    <div>
-      <div class="back-button">
-        <nuxt-link to="/" class="nuxt-link-color">首 页</nuxt-link>
-      </div>
+    <div class="back-button">
+      <nuxt-link to="/" class="nuxt-link-color">首 页</nuxt-link>
     </div>
   </div>
 </template>
@@ -27,9 +25,9 @@ img {
 .back-button {
   text-align: center;
   border: 1px solid skyblue;
-  width: 5vw;
-  height: 5vh;
-  line-height: 5vh;
+  width: 70px;
+  height: 40px;
+  line-height: 40px;
   position: absolute;
   z-index: 1;
   bottom: 10%;
