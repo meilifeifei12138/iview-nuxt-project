@@ -1,19 +1,25 @@
 <template>
   <div>
-    <Form ref="loginForm" :model="passwordLoginFormValue" :rules="passwordLoginFormValidate" class="form">
+    <Form ref="passwordLoginForm" :model="passwordLoginFormValue" :rules="passwordLoginFormValidate" class="form">
       <FormItem prop="user">
-        <Input type="text" v-model="passwordLoginFormValue.user" placeholder="请输入邮箱或者手机号">
-          <template #prepend>
-            <Icon type="ios-person-outline" />
-          </template>
-        </Input>
+        <Row>
+          <Col span="4">
+            <span>手机号:</span>
+          </Col>
+          <Col span="20">
+            <Input type="text" v-model="passwordLoginFormValue.user" placeholder="请输入邮箱或者手机号" />
+          </Col>
+        </Row>
       </FormItem>
       <FormItem prop="password">
-        <Input type="password" v-model="passwordLoginFormValue.password" placeholder="Password">
-          <template #prepend>
-            <Icon type="ios-lock-outline" />
-          </template>
-        </Input>
+        <Row>
+          <Col span="4">
+            <span>密码 :</span>
+          </Col>
+          <Col span="20">
+            <Input type="password" v-model="passwordLoginFormValue.password" placeholder="Password" />
+          </Col>
+        </Row>
       </FormItem>
     </Form>
     <div>
@@ -28,12 +34,7 @@
         </Col>
       </Row>
       <br />
-      <Button type="primary" :loading="signUpLoading" @click="handleSubmit" class="login-button"> 登陆 </Button>
-      <br />
-      <div class="sign-up-text">
-        还没有账号？
-        <nuxt-link :to="path.signUp">立即注册</nuxt-link>
-      </div>
+      <Button type="primary" :loading="signUpLoading" @click="passwordLogin" class="login-button"> 登陆 </Button>
     </div>
   </div>
 </template>
@@ -55,20 +56,20 @@ export default {
         user: [
           {
             required: true,
-            message: 'Please fill in the user name',
+            message: '请输入账号',
             trigger: 'blur',
           },
         ],
         password: [
           {
             required: true,
-            message: 'Please fill in the password.',
+            message: '请输入密码',
             trigger: 'blur',
           },
           {
             type: 'string',
             min: 6,
-            message: 'The password length cannot be less than 6 bits',
+            message: '密码不能少于6位',
             trigger: 'blur',
           },
         ],
@@ -76,8 +77,8 @@ export default {
     };
   },
   methods: {
-    handleSubmit() {
-      this.$refs.loginForm.validate((valid) => {
+    passwordLogin() {
+      this.$refs.passwordLoginForm.validate((valid) => {
         if (valid) {
           this.signUpLoading = true;
           localStorage.setItem('UserInfo', this.passwordLoginFormValue.user);
