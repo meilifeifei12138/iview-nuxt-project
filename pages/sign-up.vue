@@ -18,19 +18,14 @@
                 <Input v-model="SignUpFormValidate.verificationCode" placeholder="请输入验证码" />
               </Col>
               <Col span="8">
-                <Button
-                  type="primary"
-                  :loading="isSendVerificationCodeLoading"
-                  :disabled="isSendVerificationCodeDisabled"
-                  @click="geiVerificationCode"
-                >
+                <Button type="primary" :disabled="isSendVerificationCodeDisabled" @click="geiVerificationCode">
                   {{ verificationAppendText }}
                 </Button>
               </Col>
             </Row>
           </FormItem>
-          <FormItem class="checkboxFormItem">
-            <Checkbox> 我接受<router-link to="">条款</router-link> </Checkbox>
+          <FormItem prop="acceptTerm">
+            <Checkbox v-model="SignUpFormValidate.acceptTerm"> 我接受<router-link to="">条款</router-link> </Checkbox>
           </FormItem>
         </Form>
         <div class="btn-father">
@@ -44,7 +39,6 @@
 <script>
 import SignUpFormValidate from 'assets/js/SignUpForm/SignUpFormValidate';
 import SignUpRuleValidate from 'assets/js/SignUpForm/SignUpRuleValidate';
-import path from 'assets/js/Router/Path';
 export default {
   name: 'SignUpPage',
   data() {
@@ -52,16 +46,13 @@ export default {
       SignUpFormValidate,
       SignUpRuleValidate,
       isSendVerificationCodeDisabled: false,
-      isSendVerificationCodeLoading: false,
       verificationAppendText: '发送验证码',
       waitTime: 60,
     };
   },
   methods: {
     geiVerificationCode() {
-      // this.isSendVerificationCodeLoading = true;
       //request
-      // this.isSendVerificationCodeLoading = false;
       const that = this;
       that.isSendVerificationCodeDisabled = true;
       let timer = setInterval(function () {
@@ -77,7 +68,13 @@ export default {
       }, 1000);
     },
     createAccountBtn() {
-      this.$router.push({ path: path.login });
+      this.$refs.signUpForm.validate((valid) => {
+        if (!valid) {
+          this.$Message.error('表单验证失败');
+          return;
+        }
+        this.$router.push({ name: 'home', params: { user: SignUpFormValidate.phone } });
+      });
     },
   },
 };
@@ -108,9 +105,6 @@ img {
 .form {
   width: 400px;
   margin: auto;
-}
-.checkboxFormItem {
-  text-align: right;
 }
 .btn-father {
   width: 100%;

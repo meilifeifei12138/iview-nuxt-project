@@ -26,4 +26,5 @@ export default {
       trigger: 'blur',
     },
   ],
+  acceptTerm: [{ require: true, message: '请接受条款', trigger: 'change' }],
 };
