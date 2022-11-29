@@ -55,6 +55,7 @@
 </template>
 
 <script>
+import path from 'assets/js/Router/Path';
 export default {
   name: 'VerificationCodeLoginForm',
   data() {
@@ -68,6 +69,7 @@ export default {
       }
     };
     return {
+      path,
       phoneAreaDefaultCode: '+86',
       verificationAppendText: '发送验证码',
       isBtnLoading: false,
@@ -95,11 +97,12 @@ export default {
   methods: {
     verificationCodeLogin() {
       this.$refs.verificationCodeLoginForm.validate((valid) => {
-        if (valid) {
-          this.$Message.success('Success!');
-        } else {
-          this.$Message.error('Fail!');
+        if (!valid) {
+          this.$Message.error('表单验证失败');
+          return;
         }
+        //request success
+        this.$router.push({ name: 'home', params: { user: this.verificationCodeLoginForm.phoneNumber } });
       });
     },
     sendVerificationCode() {
