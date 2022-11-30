@@ -1,19 +1,32 @@
 <template>
-  <div>我是home主页 {{ username }}</div>
+  <div>
+    <LayoutHeader />
+    <Layout class="layout">
+      <HomeProjectTable />
+    </Layout>
+  </div>
 </template>
 
 <script>
+import LayoutHeader from '@/components/LayoutHeader';
+import HomeProjectTable from '@/components/HomeProjectTable';
 export default {
   name: 'HomePage',
+  components: {
+    LayoutHeader,
+    HomeProjectTable,
+  },
   data() {
-    return {
-      username: '',
-    };
+    return {};
   },
   created() {
-    this.username = this.$route.params.user;
+    this.$store.commit('changeIsLogin', true);
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.layout {
+  padding: 24px 24px;
+}
+</style>
