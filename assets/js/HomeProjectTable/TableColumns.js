@@ -17,17 +17,7 @@ export default [
   {
     title: '名称',
     key: 'title',
-    render: function (h, params) {
-      return h(
-        'nuxt-link',
-        {
-          props: {
-            to: 'project-detail',
-          },
-        },
-        params.row.title,
-      );
-    },
+    slot: 'title',
   },
   {
     title: '国家',

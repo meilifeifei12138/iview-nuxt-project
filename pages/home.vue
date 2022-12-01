@@ -16,9 +16,6 @@ export default {
     LayoutHeader,
     HomeProjectTable,
   },
-  data() {
-    return {};
-  },
   created() {
     this.$store.commit('changeIsLogin', true);
   },
@@ -26,7 +23,5 @@ export default {
 </script>
 
 <style scoped>
-.layout {
-  padding: 24px 24px;
-}
+@import '~/assets/css/layout.css';
 </style>

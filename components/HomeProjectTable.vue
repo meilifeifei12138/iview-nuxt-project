@@ -71,6 +71,18 @@
         :loading="isLoading"
         @on-selection-change="selectionChanged"
       >
+        <template #title="{ row }">
+          <nuxt-link
+            :to="{
+              path: '/project-detail',
+              query: {
+                id: row.id,
+              },
+            }"
+          >
+            {{ row.title }}
+          </nuxt-link>
+        </template>
         <template #isCollected="{ row }">
           <Icon
             :type="row.isCollected ? 'md-star' : 'md-star-outline'"
