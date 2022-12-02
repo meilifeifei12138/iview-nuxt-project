@@ -13,9 +13,9 @@ export default [
     path: path.server,
   },
   {
-    name: '信息',
-    value: 'message',
-    icon: 'fa-solid fa-message',
-    path: path.message,
+    name: '签到',
+    value: 'checkin',
+    icon: 'fa-solid fa-calendar',
+    path: '',
   },
 ];

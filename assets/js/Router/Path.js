@@ -8,4 +8,6 @@ export default {
   server: '/server',
   message: '/message',
   forgotPassword: '/forgot-password',
+  checkIn: '/check-in',
+  subscription: '/subscription',
 };

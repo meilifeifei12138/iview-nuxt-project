@@ -33,7 +33,9 @@ export default {
     loginOut() {
       //退出登陆 成功
     },
-    toMessageCenter() {},
+    toMessageCenter() {
+      this.$router.push({ path: '/message' });
+    },
   },
 };
 </script>

@@ -1,25 +1,29 @@
 <template>
   <Header class="header">
     <Menu class="header-menu" mode="horizontal">
-      <NuxtLink to="/">
+      <nuxt-link to="/">
         <img src="~/assets/image/logo.gif" alt="桔加" />
-      </NuxtLink>
+      </nuxt-link>
       <div class="layout-nav" v-if="isLogin">
         <!--        已登陆   -->
-        <menu-item v-for="item in Logged" :key="item.value" :name="item.value">
-          <font-awesome-icon :icon="item.icon" />
-          {{ item.name }}
-        </menu-item>
+        <nuxt-link v-for="item in Logged" :key="item.value" :to="item.path">
+          <menu-item :name="item.value">
+            <font-awesome-icon :icon="item.icon" />
+            {{ item.name }}
+          </menu-item>
+        </nuxt-link>
         <menu-item name="userAvatar">
           <UserAvatar />
         </menu-item>
       </div>
       <div class="layout-nav" v-else>
         <!--        未登录-->
-        <menu-item v-for="item in UnLogged" :key="item.value" :name="item.value">
-          <font-awesome-icon :icon="item.icon" />
-          {{ item.name }}
-        </menu-item>
+        <nuxt-link v-for="item in UnLogged" :key="item.value" :to="item.path">
+          <menu-item :name="item.value">
+            <font-awesome-icon :icon="item.icon" />
+            {{ item.name }}
+          </menu-item>
+        </nuxt-link>
         <menu-item name="loginButton">
           <Button type="primary" ghost @click="toLoginPage">登陆</Button>
         </menu-item>
