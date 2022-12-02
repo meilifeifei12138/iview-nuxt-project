@@ -1,18 +1,18 @@
 <template>
   <div>
     <Layout>
-      <LayoutHeader />
+      <HeadNavBar />
       <Content> 我是首页 </Content>
     </Layout>
   </div>
 </template>
 
 <script>
-import LayoutHeader from '@/components/LayoutHeader';
+import HeadNavBar from '@/components/HeadNavBar';
 export default {
   name: 'FrontPage',
   components: {
-    LayoutHeader,
+    HeadNavBar,
   },
 };
 </script>

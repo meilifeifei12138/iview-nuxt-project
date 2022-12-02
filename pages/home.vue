@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LayoutHeader />
+    <HeadNavBar />
     <Layout class="layout">
       <HomeProjectTable />
     </Layout>
@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import LayoutHeader from '@/components/LayoutHeader';
+import HeadNavBar from '@/components/HeadNavBar';
 import HomeProjectTable from '@/components/HomeProjectTable';
 export default {
   name: 'HomePage',
   components: {
-    LayoutHeader,
+    HeadNavBar,
     HomeProjectTable,
   },
   created() {

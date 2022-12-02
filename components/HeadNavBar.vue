@@ -38,7 +38,7 @@ import UnLogged from 'assets/js/NavBar/UnLogged';
 import Logged from 'assets/js/NavBar/Logged';
 import path from 'assets/js/Router/Path';
 export default {
-  name: 'LayoutHeaderPage',
+  name: 'HeadNavBar',
   components: {
     UserAvatar,
   },

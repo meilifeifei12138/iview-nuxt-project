@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LayoutHeader />
+    <HeadNavBar />
     <Layout class="layout">
       <Card class="card">
         <h1>{{ projectDate.title }}</h1>
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import LayoutHeader from '@/components/LayoutHeader';
+import HeadNavBar from '@/components/HeadNavBar';
 import TableDate from 'assets/js/HomeProjectTable/TableDate';
 export default {
   name: 'ProjectDetail',
@@ -46,7 +46,7 @@ export default {
     };
   },
   components: {
-    LayoutHeader,
+    HeadNavBar,
   },
   created() {
     this.projectDate = TableDate[3];
