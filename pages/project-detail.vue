@@ -21,7 +21,7 @@
             </template>
             <template #trigger>
               <div class="trigger">
-                <font-awesome-icon icon="fa-solid fa-arrow-right-arrow-left" class="trigger-icon" />
+                <font-awesome-icon icon="arrow-right-arrow-left" class="trigger-icon" />
               </div>
             </template>
             <template #right>

@@ -2,7 +2,7 @@
   <div>
     <Layout>
       <HeadNavBar />
-      <Content> 我是首页 </Content>
+      <Content>我是首页 </Content>
     </Layout>
   </div>
 </template>

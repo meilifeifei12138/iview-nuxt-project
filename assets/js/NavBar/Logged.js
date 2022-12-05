@@ -3,19 +3,19 @@ export default [
   {
     name: '首页',
     value: 'front-page',
-    icon: 'fa-solid fa-backward',
+    icon: 'backward',
     path: path.frontPage,
   },
   {
     name: '服务',
     value: 'server',
-    icon: 'fa-solid fa-server',
+    icon: 'server',
     path: path.server,
   },
   {
     name: '签到',
     value: 'checkin',
-    icon: 'fa-solid fa-calendar',
+    icon: 'calendar',
     path: '',
   },
 ];
