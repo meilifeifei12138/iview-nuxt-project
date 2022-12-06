@@ -16,9 +16,6 @@ export default {
     HeadNavBar,
     HomeProjectTable,
   },
-  created() {
-    this.$store.commit('changeIsLogin', true);
-  },
 };
 </script>
 

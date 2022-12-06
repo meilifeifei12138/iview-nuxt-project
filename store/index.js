@@ -1,9 +1,9 @@
 export const state = () => ({
-  isLogin: false,
-  notSubscribe: true,
+  token: null,
 });
+
 export const mutations = {
-  changeIsLogin(state, newState) {
-    state.isLogin = JSON.parse(JSON.stringify(newState));
+  setToken(state, payload) {
+    state.token = payload;
   },
 };

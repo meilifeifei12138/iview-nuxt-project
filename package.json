@@ -11,6 +11,7 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/vue-fontawesome": "^2.0.9",
+    "@nuxtjs/axios": "^5.13.6",
     "amfe-flexible": "^2.2.1",
     "core-js": "^3.25.3",
     "nuxt": "^2.15.8",

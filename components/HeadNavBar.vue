@@ -4,7 +4,7 @@
       <nuxt-link to="/">
         <img src="~/assets/image/logo.gif" alt="桔加" />
       </nuxt-link>
-      <div class="layout-nav" v-if="isLogin">
+      <div class="layout-nav" v-if="$store.state.token">
         <!--        已登陆   -->
         <nuxt-link v-for="item in Logged" :key="item.value" :to="item.path">
           <menu-item :name="item.value">
@@ -47,11 +47,6 @@ export default {
       UnLogged,
       Logged,
     };
-  },
-  computed: {
-    isLogin() {
-      return this.$store.state.isLogin;
-    },
   },
   methods: {
     toLoginPage() {
