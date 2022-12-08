@@ -41,13 +41,14 @@
 
 <script>
 import path from 'assets/js/Router/Path';
-import { mapMutations } from 'vuex';
+import { mapMutations, mapActions } from 'vuex';
 
 export default {
   name: 'PasswordLoginForm',
   data() {
     return {
       path,
+      userToken: null,
       rememberCheckbox: true,
       signUpLoading: false,
       passwordLoginFormValue: {
@@ -79,19 +80,17 @@ export default {
     };
   },
   methods: {
+    ...mapMutations(['auth/setToken']),
     passwordLogin() {
       this.$refs.passwordLoginForm.validate(async (valid) => {
-        if (valid) {
-          this.signUpLoading = true;
-          //  request
-          let { data } = await this.$axios.post('login', this.passwordLoginFormValue);
-          localStorage.setItem('token', data.token);
-          this.$store.commit('setToken', localStorage.getItem('token'));
-          this.signUpLoading = false;
-          await this.$router.push({ path: path.home });
-        } else {
-          this.$Message.error('Fail!');
+        if (!valid) {
+          return this.$Message.error('请输入正确的表单内容');
         }
+        this.signUpLoading = true;
+        //  request
+        await this.$store.dispatch('auth/login', this.passwordLoginFormValue);
+        this.signUpLoading = false;
+        await this.$router.push('home');
       });
     },
   },

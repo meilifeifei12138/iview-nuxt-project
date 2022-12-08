@@ -4,7 +4,7 @@
       <nuxt-link to="/">
         <img src="~/assets/image/logo.gif" alt="桔加" />
       </nuxt-link>
-      <div class="layout-nav" v-if="$store.state.token">
+      <div class="layout-nav" v-if="$store.state.auth.token">
         <!--        已登陆   -->
         <nuxt-link v-for="item in Logged" :key="item.value" :to="item.path">
           <menu-item :name="item.value">
@@ -37,6 +37,7 @@ import UserAvatar from '@/components/UserAvatar';
 import UnLogged from 'assets/js/NavBar/UnLogged';
 import Logged from 'assets/js/NavBar/Logged';
 import path from 'assets/js/Router/Path';
+import constant from '~/utils/constant';
 export default {
   name: 'HeadNavBar',
   components: {
@@ -47,6 +48,9 @@ export default {
       UnLogged,
       Logged,
     };
+  },
+  mounted() {
+    this.$store.commit('auth/setToken', localStorage.getItem(constant.TOKEN));
   },
   methods: {
     toLoginPage() {

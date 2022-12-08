@@ -32,6 +32,9 @@ export default {
   methods: {
     loginOut() {
       //退出登陆 成功
+      this.$store.commit('auth/removeToken');
+      this.$Message.success('已成功退出')
+      this.$router.push('/login');
     },
     toMessageCenter() {
       this.$router.push({ path: '/message' });
