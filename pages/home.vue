@@ -16,6 +16,7 @@ export default {
     HeadNavBar,
     HomeProjectTable,
   },
+  middleware: ['auth'],
 };
 </script>
 

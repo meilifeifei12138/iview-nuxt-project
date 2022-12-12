@@ -1,5 +1,6 @@
-export default function ({ redirect, store }) {
-  if (store.state.token === '' || store.state.token === undefined) {
+import constant from '@/utils/constant';
+export default function ({ $cookies, redirect }) {
+  if (!$cookies.get(constant.TOKEN)) {
     return redirect('/login');
   }
 }

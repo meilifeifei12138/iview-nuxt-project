@@ -13,6 +13,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.9",
     "@nuxtjs/axios": "^5.13.6",
     "amfe-flexible": "^2.2.1",
+    "cookie-universal-nuxt": "^2.2.2",
     "core-js": "^3.25.3",
     "nuxt": "^2.15.8",
     "nuxt-fontawesome": "^0.4.0",

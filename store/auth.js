@@ -1,31 +1,31 @@
 import { Message } from 'view-design';
-import { setItem, removeItem } from '~/utils/localstorage';
-import constant from '~/utils/constant';
-//开始设置vuex
+import path from 'assets/js/Router/Path';
+import constant from '@/utils/constant';
 export const state = () => ({
-  token: null,
+  token: undefined,
 });
 
 export const mutations = {
   setToken(state, payload) {
     state.token = payload;
-    setItem(constant.TOKEN, state.token);
+    this.$cookies.set(constant.TOKEN, payload);
   },
-  removeToken(state) {
-    state.token = null;
-    removeItem(constant.TOKEN);
+  async removeToken() {
+    this.$cookies.set(constant.TOKEN, undefined);
+    await this.$router.push(path.login);
   },
 };
 
 export const actions = {
-  async login(context, data) {
+  async login({ commit }, data) {
     const res = await this.$axios.post('login', data);
     if (!res) {
-      Message.error('请求有些问题～');
+      Message.error('好像出了一些问题～');
       return;
     }
+    await commit('setToken', res.data.token);
     Message.success('登陆成功');
-    context.commit('setToken', res.data.token);
+    await this.$router.push(path.home);
     return res;
   },
 };

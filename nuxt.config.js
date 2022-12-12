@@ -6,15 +6,15 @@ export default {
   head: {
     title: '南京桔加',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'en',
     },
 
     meta: [
       { charset: 'utf-8' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.jpeg' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.jpeg' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -31,11 +31,11 @@ export default {
 
   publicRuntimeConfig: {
     axios: {
-      baseURL: 'http://127.0.0.1:8888/api/private/v1/'
-    }
+      baseURL: 'http://127.0.0.1:8888/api/private/v1/',
+    },
   },
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['nuxt-fontawesome', 'nuxt-viewport', '@nuxtjs/axios'],
+  modules: ['nuxt-fontawesome', 'nuxt-viewport', '@nuxtjs/axios', 'cookie-universal-nuxt'],
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {},
 };

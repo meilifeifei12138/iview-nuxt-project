@@ -1,10 +1,10 @@
 <template>
   <Header class="header">
     <Menu class="header-menu" mode="horizontal">
-      <nuxt-link to="/">
+      <nuxt-link :to="path.frontPage">
         <img src="~/assets/image/logo.gif" alt="桔加" />
       </nuxt-link>
-      <div class="layout-nav" v-if="$store.state.auth.token">
+      <div class="layout-nav" v-if="$cookies.get(constant.TOKEN)">
         <!--        已登陆   -->
         <nuxt-link v-for="item in Logged" :key="item.value" :to="item.path">
           <menu-item :name="item.value">
@@ -37,7 +37,7 @@ import UserAvatar from '@/components/UserAvatar';
 import UnLogged from 'assets/js/NavBar/UnLogged';
 import Logged from 'assets/js/NavBar/Logged';
 import path from 'assets/js/Router/Path';
-import constant from '~/utils/constant';
+import constant from '@/utils/constant';
 export default {
   name: 'HeadNavBar',
   components: {
@@ -47,14 +47,13 @@ export default {
     return {
       UnLogged,
       Logged,
+      path,
+      constant,
     };
-  },
-  mounted() {
-    this.$store.commit('auth/setToken', localStorage.getItem(constant.TOKEN));
   },
   methods: {
     toLoginPage() {
-      this.$router.push({ path: path.login });
+      this.$router.push(path.login);
     },
   },
 };

@@ -41,7 +41,6 @@
 
 <script>
 import path from 'assets/js/Router/Path';
-import { mapMutations, mapActions } from 'vuex';
 
 export default {
   name: 'PasswordLoginForm',
@@ -80,7 +79,6 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(['auth/setToken']),
     passwordLogin() {
       this.$refs.passwordLoginForm.validate(async (valid) => {
         if (!valid) {
@@ -90,7 +88,6 @@ export default {
         //  request
         await this.$store.dispatch('auth/login', this.passwordLoginFormValue);
         this.signUpLoading = false;
-        await this.$router.push('home');
       });
     },
   },
