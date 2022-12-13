@@ -1,0 +1,17 @@
+.phone-area-select {
+  width: 80px;
+}
+.phone-area-country {
+  float: left;
+}
+.phone-area-num {
+  float: right;
+  color: #ccc;
+}
+.send-verification-btn {
+  text-align: center;
+  width: 120px;
+}
+.verification-login-btn {
+  width: 100%;
+}
