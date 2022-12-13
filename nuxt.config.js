@@ -13,6 +13,8 @@ export default {
       { charset: 'utf-8' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
+      { name: 'keywords', content: '桔加招标网站｜招标投标' },
+      { name: 'description', content: '我是一个招标网站，覆盖了全国99%的招标信息，每天更新xx万条招标项目信息' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.jpeg' }],
   },
